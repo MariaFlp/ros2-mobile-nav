@@ -12,6 +12,8 @@ setup(
         ('share/' + package_name + '/config', ['config/waypoints.yaml']),
     ],
     install_requires=['setuptools'],
+    tests_require=['pytest'],
+    extras_require={'test': ['pytest']},
     zip_safe=True,
     maintainer='mfilip',
     maintainer_email='82089636+MariaFlp@users.noreply.github.com',
