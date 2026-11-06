@@ -1,0 +1,8 @@
+# Waypoints in the map frame (metres, radians). The map origin is the robot's spawn pose,
+# so map (x, y) = world (x + 4, y) for the office world.
+waypoints:
+  - {name: doorway_east,     x: 4.5, y:  1.5, yaw: 0.0}
+  - {name: east_room_north,  x: 7.5, y:  1.0, yaw: 0.0}
+  - {name: east_room_south,  x: 6.5, y: -3.0, yaw: 3.14}
+  - {name: west_room,        x: 1.0, y: -1.0, yaw: 3.14}
+  - {name: home,             x: 0.0, y:  0.0, yaw: 0.0}
