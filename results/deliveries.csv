@@ -1,3 +1,11 @@
 trip,destination,result,attempts,drive_s,recoveries,request_to_delivery_s
 1,ward_a,delivered,1,20.0,0,23.0
 1,lab,delivered,1,22.2,0,50.2
+1,ward_a,failed,2,0.0,0,3.0
+1,lab,failed,2,0.0,0,3.0
+2,ward_a,failed,2,0.0,0,3.0
+2,lab,failed,2,0.0,0,3.0
+3,ward_a,delivered,1,0.0,0,3.0
+3,lab,delivered,1,23.3,0,31.3
+1,ward_a,delivered,1,19.7,0,22.7
+1,lab,delivered,1,24.1,0,51.8

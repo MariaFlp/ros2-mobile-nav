@@ -55,7 +55,7 @@ class MissionManager(Node):
 def make_pose(navigator, station):
     pose = PoseStamped()
     pose.header.frame_id = 'map'
-    pose.header.stamp = navigator.get_clock().now().to_msg()
+    # Zero stamp means 'latest'; the navigator's own clock can lag behind simulation time here.
     pose.pose.position.x = station.x
     pose.pose.position.y = station.y
     pose.pose.orientation.z, pose.pose.orientation.w = yaw_to_quaternion(station.yaw)
@@ -95,6 +95,7 @@ def drive_with_retry(navigator, manager, station):
         if ok:
             return True, attempt, total, recoveries
         manager.say(f'attempt {attempt} to reach {station.name} failed')
+        wait(manager, 3.0)  # short pause before retrying
     return False, MAX_ATTEMPTS, total, recoveries
 
 
