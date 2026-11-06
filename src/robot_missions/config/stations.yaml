@@ -1,0 +1,9 @@
+# Named delivery stations in the map frame (metres, radians).
+# The map origin is the robot's spawn pose, so map (x, y) = Gazebo world (x + 4, y).
+# 'dock' must be one of the stations: the robot loads there and returns there.
+dock: pharmacy
+stations:
+  - {name: pharmacy, x: 0.0, y:  0.0, yaw: 0.0}    # dock, west room (spawn pose)
+  - {name: lab,      x: 1.0, y: -1.0, yaw: 3.14}   # west room
+  - {name: ward_a,   x: 7.5, y:  1.0, yaw: 0.0}    # east room, north
+  - {name: ward_b,   x: 6.5, y: -3.0, yaw: 3.14}   # east room, south
