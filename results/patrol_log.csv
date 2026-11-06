@@ -1,0 +1,6 @@
+loop,waypoint,result,duration_s,recoveries
+1,doorway_east,succeeded,13.7,0
+1,east_room_north,succeeded,8.1,0
+1,east_room_south,succeeded,19.6,0
+1,west_room,succeeded,25.5,0
+1,home,succeeded,7.6,0

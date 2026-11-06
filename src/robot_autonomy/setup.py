@@ -13,8 +13,8 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='Your Name',
-    maintainer_email='you@example.com',
+    maintainer='mfilip',
+    maintainer_email='82089636+MariaFlp@users.noreply.github.com',
     description='Waypoint patrol mission on top of Nav2',
     license='Apache-2.0',
     entry_points={

@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-24.04
+    container: osrf/ros:jazzy-desktop
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends \
+            ros-jazzy-ros-gz \
+            ros-jazzy-navigation2 ros-jazzy-nav2-bringup \
+            ros-jazzy-slam-toolbox \
+            ros-jazzy-robot-localization \
+            ros-jazzy-xacro \
+            ros-jazzy-joint-state-publisher-gui \
+            liburdfdom-tools \
+            python3-colcon-common-extensions
+
+      - name: Build
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          colcon build --event-handlers console_direct+
+
+      - name: Validate the robot model
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          source install/setup.bash
+          xacro src/robot_description/urdf/diffbot.urdf.xacro > /tmp/diffbot.urdf
+          check_urdf /tmp/diffbot.urdf
+
+      - name: Unit tests
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          source install/setup.bash
+          colcon test --event-handlers console_direct+
+          colcon test-result --verbose

@@ -3,7 +3,7 @@
   <name>robot_navigation</name>
   <version>0.1.0</version>
   <description>Nav2 configuration, saved maps and launch files for autonomous navigation</description>
-  <maintainer email="you@example.com">Your Name</maintainer>
+  <maintainer email="82089636+MariaFlp@users.noreply.github.com">mfilip</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
