@@ -1,0 +1,3 @@
+trip,destination,result,attempts,drive_s,recoveries,request_to_delivery_s
+1,ward_a,delivered,1,20.0,0,23.0
+1,lab,delivered,1,22.2,0,50.2
