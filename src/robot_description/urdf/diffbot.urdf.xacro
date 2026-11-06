@@ -13,12 +13,17 @@
   <xacro:property name="wheel_sep"     value="0.30"/>  <!-- distance between wheel centres -->
   <xacro:property name="wheel_x"       value="0.0"/>
 
+  <!-- Chassis bottom sits ground_clear above the floor (base_link is at wheel-axle height) -->
+  <xacro:property name="ground_clear"  value="0.03"/>
+  <xacro:property name="base_z"        value="${ground_clear - wheel_radius + base_height/2}"/>
+
   <xacro:property name="caster_radius" value="0.02"/>
   <xacro:property name="caster_x"      value="0.15"/>
 
   <!-- ===== Inertia macros ===== -->
   <xacro:macro name="box_inertia" params="m x y z">
     <inertial>
+      <origin xyz="0 0 ${base_z}" rpy="0 0 0"/>
       <mass value="${m}"/>
       <inertia ixx="${m/12*(y*y+z*z)}" ixy="0" ixz="0"
                iyy="${m/12*(x*x+z*z)}" iyz="0"
@@ -50,10 +55,12 @@
 
   <link name="base_link">
     <visual>
+      <origin xyz="0 0 ${base_z}" rpy="0 0 0"/>
       <geometry><box size="${base_length} ${base_width} ${base_height}"/></geometry>
       <material name="body"><color rgba="0.15 0.35 0.75 1"/></material>
     </visual>
     <collision>
+      <origin xyz="0 0 ${base_z}" rpy="0 0 0"/>
       <geometry><box size="${base_length} ${base_width} ${base_height}"/></geometry>
     </collision>
     <xacro:box_inertia m="${base_mass}" x="${base_length}" y="${base_width}" z="${base_height}"/>
